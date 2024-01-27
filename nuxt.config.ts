@@ -4,7 +4,22 @@ export default defineNuxtConfig({
   css: [
     "@/assets/styles/reset.css",
     "bootstrap/dist/css/bootstrap.min.css",
-    "@/assets/styles/default.css"
-  ]
-})
+    "bootstrap-icons/font/bootstrap-icons.css",
+    "@/assets/styles/default.scss"
+  ],
+  vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: '@import "@/assets/styles/_variables.scss";',
+        },
+      },
+    },
+  },
+  app: {
+    head: {
+      title: 'エターナリア・ワールド'
+    }
+  },
+});
 

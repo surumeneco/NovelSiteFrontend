@@ -6,8 +6,4 @@
   </div>
 </template>
 
-<script setup lang="ts">
-  useHead({
-    title: 'Eternalia World'
-  });
-</script>
+<script setup lang="ts"></script>
