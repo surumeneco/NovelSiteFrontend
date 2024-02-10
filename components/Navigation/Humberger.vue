@@ -46,7 +46,7 @@
     width: 3rem;
     height: 3rem;
     background-color: transparent;
-    border: 3px solid #2f2f2f;
+    border: 2px solid #2f2f2f;
     border-radius: 15px;
     cursor: pointer;
     z-index: 999; /* メニューを開いている時もクリックできるよう設定 */
@@ -57,7 +57,7 @@
       top: 50%;
       left: 50%;
       width: 2rem;
-      height: 3px;
+      height: 2px;
       border-radius: 3px;
       background-color: #2f2f2f;
       transform: translateX(-50%);
@@ -75,7 +75,7 @@
       }
     }
     &.active {
-      border: 3px solid #bfbfbf;
+      border: 2px solid #bfbfbf;
       span {
         background-color: #bfbfbf;
         &:first-child {
