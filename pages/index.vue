@@ -27,4 +27,8 @@
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+  class Valiable {}
+
+  const refs = ref<Valiable>(new Valiable());
+</script>

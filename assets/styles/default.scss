@@ -1,12 +1,18 @@
+/*  ---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---
+      サイト全体のスタイル
+    ---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=--- */
+// 全要素
 * {
   font-family: '';
 }
 
+// ボディ
 body {
   background-color: #3F3F3F;
   color: #FFEBD8;
 }
 
+// リンク色
 link, a {
   &:link {
     color: #7FFFFF;
@@ -18,12 +24,19 @@ link, a {
     color: #00CFCF;
     text-decoration: underline;
   }
-}
+}/* ---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=--- */
 
+
+
+/*  ---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---
+      ナビゲーションのスタイル
+    ---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=--- */
+// ロゴ
 .navbar-brand {
   color: #3F3F3F !important;
 }
 
+// 各アイテム
 .nav-item {
   .nav-dark {
     color: #3F3F3F !important;
@@ -32,45 +45,14 @@ link, a {
     color: #FFFFFF !important;
   }
 }
+/* ---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=--- */
 
-.breadcrumb-container {
-  padding: 0px 8px;
-  background-color: #F0F0F0;
-  border-radius: 5px;
-  link, a {
-    &:link {
-      color: #3F7F7F !important;
-    }
-    &:visited {
-      color: #3F3F7F !important;
-    }
-    &:hover {
-      color: #006666 !important;
-      text-decoration: underline;
-    }
-  }
-}
 
-.content-list-element {
-  color: #FFEBD8 !important;
-  text-decoration: none;
-  &:hover {
-    text-decoration: none;
-  }
-}
 
-.contents-container {
-  background-color: #444444;
-  border-radius: 10px;
-  box-shadow: 0px 0px 10px #474747;
-  padding: 8px 16px;
-}
-
-.page-title{
-  border-bottom: 5px solid #7cc;
-  padding: 0px 8px;
-}
-
+/*  ---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---
+      オリジナルパーツのスタイル
+    ---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=--- */
+//
 .content-box {
   border: 1px solid #777;
   border-radius: 5px;
@@ -78,3 +60,19 @@ link, a {
   margin: 8px 0px;
   padding: 8px;
 }
+
+//
+.page-title {
+  display: inline-block;
+  border-bottom: 5px solid #7cc;
+  padding: 0px 8px;
+}
+
+//
+.caption {
+  font-size: 0.9em;
+  color: #BFB0A2;
+  margin-top: 8px;
+}
+/* ---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=--- */
+

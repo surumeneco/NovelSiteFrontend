@@ -11,33 +11,34 @@
         >
           Eternalia World
         </NuxtLink>
-        <div class="collapse navbar-collapse">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <NuxtLink
-                to="/stories"
-                class="nav-link nav-dark"
-              >
-                ストーリー
-              </NuxtLink>
-            </li>
-            <li class="nav-item">
-              <NuxtLink
-                to="/tips"
-                class="nav-link nav-dark"
-              >
-                設定集
-              </NuxtLink>
-            </li>
-            <li class="nav-item">
-              <NuxtLink
-                to="/languages"
-                class="nav-link nav-dark"
-              >
-                辞書
-              </NuxtLink>
-            </li>
-          </ul>
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <NuxtLink
+              to="/stories"
+              class="nav-link nav-dark"
+            >
+              ストーリー
+            </NuxtLink>
+          </li>
+          <li class="nav-item">
+            <NuxtLink
+              to="/tips"
+              class="nav-link nav-dark"
+            >
+              設定集
+            </NuxtLink>
+          </li>
+          <li class="nav-item">
+            <NuxtLink
+              to="/languages"
+              class="nav-link nav-dark"
+            >
+              辞書
+            </NuxtLink>
+          </li>
+        </ul>
+        <div class="humburger-button">
+          <NavigationHumberger />
         </div>
       </nav>
     </header>
@@ -45,3 +46,14 @@
 </template>
 
 <script setup lang="ts"></script>
+
+<style lang="scss" scoped>
+  .humburger-button {
+    margin: 0 0 0 auto;
+    display: none;
+
+    @include mq(lrg) {
+      display: block;
+    }
+  }
+</style>

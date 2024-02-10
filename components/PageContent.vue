@@ -36,3 +36,22 @@
     }
   });
 </script>
+
+<style lang="scss" scoped>
+  //
+  .content-list-element {
+    color: #ffebd8 !important;
+    text-decoration: none;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  //
+  .content-title {
+    display: inline-block;
+    border-bottom: 5px solid #7cc;
+    padding: 0px 8px;
+    font-size: 1.25em;
+  }
+</style>

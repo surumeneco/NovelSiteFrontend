@@ -15,7 +15,7 @@
 <script setup lang="ts">
   const Props = defineProps({
     PageTitle: {
-      type: Object as () => String,
+      type: Object as () => string,
       required: true
     },
     PagePath: {

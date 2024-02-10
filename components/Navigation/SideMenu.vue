@@ -1,6 +1,6 @@
 <template>
   <div>
-    <!-- <div>ここに更新履歴</div> -->
+    <div>ここに更新履歴</div>
   </div>
 </template>
 
