@@ -35,15 +35,16 @@
             </thead>
             <tbody class="table-group-divider">
               <tr
-                v-for="i in 15"
-                :key="i"
+                v-for="(element, index) in refs.Classes"
+                :key="index"
               >
                 <td>
                   <input
                     type="text"
                     class="form-control"
                     placeholder="品詞ID"
-                    name="GrammerId"
+                    name="ClassId"
+                    v-model="element.Id"
                   />
                 </td>
                 <td>
@@ -51,7 +52,8 @@
                     type="text"
                     class="form-control"
                     placeholder="品詞名"
-                    name="GrammerId"
+                    name="ClassName"
+                    v-model="element.Name"
                   />
                 </td>
                 <td>
@@ -63,6 +65,7 @@
                         class="form-check-input"
                         id="ClassShowingFlag"
                         value="true"
+                        v-model="element.ShowingFlag"
                       />
                     </div>
                   </div>
@@ -76,6 +79,7 @@
                         class="form-check-input"
                         id="ClassDisableFlag"
                         value="true"
+                        v-model="element.DisableFlag"
                       />
                     </div>
                   </div>
@@ -86,6 +90,8 @@
                     class="btn btn-danger btn-sm"
                     name="DeleteGrammerButton"
                     style="padding: 0px 8px"
+                    v-if="element.IsNew == 'true'"
+                    @click="DeleteClassButton_onClick(index)"
                   >
                     削除
                   </button>
@@ -93,6 +99,15 @@
               </tr>
             </tbody>
           </table>
+          <button
+            type="button"
+            class="btn btn-secondary"
+            style="width: 100%"
+            name="AddClassButton"
+            @click="AddClassButton_onClick"
+          >
+            文法を追加
+          </button>
         </div>
       </div>
     </ManageLanguageLayout>
@@ -100,9 +115,38 @@
 </template>
 
 <script setup lang="ts">
-  class Valiable {}
+  class Valiable {
+    Classes: Array<{
+      Id: string;
+      Name: string;
+      ShowingFlag: string;
+      DisableFlag: string;
+      IsNew: string;
+    }> = [];
+  }
 
   const refs = ref<Valiable>(new Valiable());
 
-  onMounted(() => {});
+  onMounted(() => {
+    refs.value.Classes.push(newClass());
+    // refs.value.Classes[0].IsNew = 'false';
+  });
+
+  const newClass = function () {
+    return {
+      Id: '',
+      Name: '',
+      ShowingFlag: 'false',
+      DisableFlag: 'false',
+      IsNew: 'true'
+    };
+  };
+
+  const DeleteClassButton_onClick = function (index: number) {
+    refs.value.Classes.splice(index, 1);
+  };
+
+  const AddClassButton_onClick = function () {
+    refs.value.Classes.push(newClass());
+  };
 </script>

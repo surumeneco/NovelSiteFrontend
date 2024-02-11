@@ -25,72 +25,14 @@
         <div class="content-box edit-grammer-list">
           <div class="content-title">文法情報</div>
           <div
-            class="content-box edit-grammer-info"
             v-for="(grammer, index) in refs.Grammers"
             :key="index"
           >
-            <ListBox
-              Name="GrammerHeader"
-              :Options="refs.GrammerHeaderOptions"
-              v-model="grammer.Header"
+            <ManageLanguageEditLanguageGrammer
+              :-grammer="grammer"
+              :-header-options="refs.GrammerHeaderOptions"
+              @delete-button_on-click="DeleteGrammerButton_onClick(index)"
             />
-            <Caption Text="文法No." />
-            <input
-              type="text"
-              class="form-control"
-              placeholder="文法No.を入力"
-              name="GrammerId"
-              v-model="grammer.Id"
-            />
-            <div class="form-check form-switch">
-              <input
-                type="checkbox"
-                role="switch"
-                class="form-check-input"
-                id="GrammerShowingFlag"
-                value="true"
-                v-model="grammer.ShowingFlag"
-              />
-              <label
-                class="form-check-label"
-                for="GrammerShowingFlag"
-              >
-                公開フラグ
-              </label>
-            </div>
-            <div class="form-check form-switch">
-              <input
-                type="checkbox"
-                class="form-check-input"
-                role="switch"
-                id="GrammerDisableFlag"
-                value="true"
-                v-model="grammer.DisableFlag"
-              />
-              <label
-                class="form-check-label"
-                for="GrammerDisableFlag"
-              >
-                無効化フラグ
-              </label>
-            </div>
-            <button
-              type="button"
-              class="btn btn-danger btn-sm"
-              name="DeleteGrammerButton"
-              style="padding: 0px 8px"
-              @click="DeleteGrammerButton_onClick(index)"
-            >
-              削除
-            </button>
-            <div>
-              <Caption Text="本文" />
-              <ResizableTextarea
-                Name="GrammerDescription"
-                MinRow="5"
-                v-model="grammer.Description"
-              />
-            </div>
           </div>
           <button
             type="button"
@@ -121,6 +63,7 @@
       Description: string;
       ShowingFlag: string;
       DisableFlag: string;
+      IsNew: string;
     }> = [];
 
     GrammerHeaderOptions: Array<OptionClass> = [];
@@ -131,6 +74,7 @@
   onMounted(() => {
     if (refs.value.Grammers.length < 1) {
       refs.value.Grammers.push(newGrammer());
+      refs.value.Grammers[0].IsNew = 'false';
     }
     refs.value.GrammerHeaderOptions.push({
       value: 'テスト見出し',
@@ -144,7 +88,8 @@
       Id: '',
       Description: '',
       ShowingFlag: 'false',
-      DisableFlag: 'false'
+      DisableFlag: 'false',
+      IsNew: 'true'
     };
   };
 
