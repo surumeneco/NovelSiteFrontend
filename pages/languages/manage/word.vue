@@ -37,10 +37,27 @@
                   name="Spell"
                 />
               </div>
-              <p>
-                意味一覧コンポーネント v-for <br />
-                語源コンポーネント <br />
-              </p>
+              <Caption Text="意味" />
+              <div
+                v-for="(mean, index) in refs.Means"
+                :key="index"
+              >
+                <ManageLanguageEditWordMean
+                  :Mean="mean"
+                  :ClassOptions="refs.ClassOptions"
+                  @DeleteButton_onClick="DeleteMeanButton_onClick(index)"
+                />
+              </div>
+              <button
+                type="button"
+                class="btn btn-secondary"
+                style="width: 100%"
+                name="AddMeanButton"
+                @click="AddMeanButton_onClick"
+              >
+                意味を追加
+              </button>
+              <p>語源コンポーネント <br /></p>
             </div>
           </div>
         </div>
@@ -60,9 +77,44 @@
 </template>
 
 <script setup lang="ts">
-  class Valiable {}
+  class Valiable {
+    Spell: string = '';
+    Means: Array<{
+      ClassId: string;
+      Description: string;
+      ShowingFlag: string;
+      DisableFlag: string;
+      IsNew: string;
+    }> = [];
+
+    ClassOptions: Array<OptionClass> = [];
+  }
 
   const refs = ref<Valiable>(new Valiable());
 
-  onMounted(() => {});
+  onMounted(() => {
+    refs.value.Means.push(newMean());
+    refs.value.ClassOptions.push({
+      value: '01',
+      text: 'テスト品詞1'
+    });
+  });
+
+  const newMean = function () {
+    return {
+      ClassId: '',
+      Description: '',
+      ShowingFlag: 'false',
+      DisableFlag: 'false',
+      IsNew: 'true'
+    };
+  };
+
+  const AddMeanButton_onClick = function () {
+    refs.value.Means.push(newMean());
+  };
+
+  const DeleteMeanButton_onClick = function (index: number) {
+    refs.value.Means.splice(index, 1);
+  };
 </script>
