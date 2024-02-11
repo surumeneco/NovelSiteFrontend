@@ -15,7 +15,7 @@
       <Caption Text="説明" />
       <ResizableTextarea
         Name="Description"
-        MinRow="3"
+        MinRow="5"
         v-model="Description"
       />
     </div>
