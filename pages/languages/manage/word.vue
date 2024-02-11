@@ -26,8 +26,21 @@
           style="margin: 0px; padding: 0px; padding-right: 4px"
         >
           <div class="edit-pannel">
-            <div class="content-box edit-class-list">
+            <div class="content-box edit-word">
               <div class="content-title">単語編集</div>
+              <div>
+                <Caption Text="スペル" />
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="スペルを入力"
+                  name="Spell"
+                />
+              </div>
+              <p>
+                意味一覧コンポーネント v-for <br />
+                語源コンポーネント <br />
+              </p>
             </div>
           </div>
         </div>
@@ -36,7 +49,7 @@
           style="margin: 0px; padding: 0px; padding-left: 4px"
         >
           <div class="search-pannel">
-            <div class="content-box edit-class-list">
+            <div class="content-box search-word">
               <div class="content-title">単語検索</div>
             </div>
           </div>

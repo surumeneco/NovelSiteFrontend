@@ -46,12 +46,4 @@
       text-decoration: none;
     }
   }
-
-  //
-  .content-title {
-    display: inline-block;
-    border-bottom: 5px solid #7cc;
-    padding: 0px 8px;
-    font-size: 1.25em;
-  }
 </style>
