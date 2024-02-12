@@ -10,11 +10,19 @@
         style="margin: 8px 8px 16px"
       >
         <div class="row justify-content-center layout-bodies">
-          <div class="col-auto layout-sidemenu">
-            <NavigationSideMenu />
+          <div
+            class="col-auto"
+            style="margin: 0px; padding: 0px"
+          >
+            <div class="layout-sidemenu">
+              <NavigationSideMenu />
+            </div>
           </div>
           <div class="col-auto layout-contents">
-            <slot />
+            <div class="layout-contents-box">
+              <slot />
+              <ScrollTopButton />
+            </div>
           </div>
         </div>
       </div>
@@ -55,15 +63,18 @@
 
   // メインコンテンツ部分
   .layout-contents {
-    background-color: #444444;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px #474747;
-    padding: 8px 16px;
     margin: 0px 16px;
+    padding: 0px;
     width: 800px;
 
     @include mq(mid) {
       width: 100%;
     }
+  }
+  .layout-contents-box {
+    padding: 8px 16px;
+    background-color: #444444;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px #474747;
   }
 </style>
