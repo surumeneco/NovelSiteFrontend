@@ -53,8 +53,8 @@
               <ul style="list-style: none">
                 <li class="nav-item">
                   <span class="nav-link nav-light">
-                    &copy;2024 - surumeneco</span
-                  >
+                    &copy; 2024. surumeneco
+                  </span>
                 </li>
               </ul>
             </div>

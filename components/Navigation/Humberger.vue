@@ -18,11 +18,14 @@
       }"
       @click="humburger_onClick"
     >
-      <div
-        class="drawer__nav__inner"
-        @click.stop=""
-      >
-        <NavigationSideMenu />
+      <div class="scroll-stopper" />
+      <div class="drawer__nav__warper">
+        <div
+          class="drawer__nav__inner"
+          @click.stop=""
+        >
+          <NavigationSideMenu />
+        </div>
       </div>
     </nav>
   </div>
@@ -37,6 +40,7 @@
 
   const humburger_onClick = function () {
     refs.value.isActive = !refs.value.isActive;
+    // document.body.style.overflow = refs.value.isActive ? 'hidden' : '';
   };
 </script>
 
@@ -101,26 +105,41 @@
     transition: opacity 0.3s ease;
     opacity: 0;
     visibility: hidden;
+    display: flex;
+    overscroll-behavior: contain;
+    overflow-y: scroll;
+    -ms-overflow-style: none; // スクロールバー非表示（IE・Edge）
+    scrollbar-width: none; // スクロールバー非表示（Firefox）
+    &::-webkit-scrollbar {
+      // スクロールバー非表示（Chrome・Safari）
+      display: none;
+    }
     &.active {
       opacity: 1;
       visibility: visible;
-      .drawer__nav__inner {
+      .drawer__nav__warper {
         transform: translateX(0);
       }
     }
   }
-  .drawer__nav__inner {
+  .drawer__nav__warper {
     position: relative;
-    width: 50%;
-    height: 100%;
     background-color: #3f3f3f;
-    padding: 4rem 1.5rem 1rem;
     margin: 0 0 0 auto;
     transform: translateX(100%);
     transition: transform 0.3s ease;
-
-    @include mq(sml) {
-      width: 80%;
-    }
+    overflow: hidden;
+  }
+  .drawer__nav__inner {
+    width: 400px;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 4rem 8px 8px;
+  }
+  .scroll-stopper {
+    width: 100px;
+    height: calc(100vh + 1px);
+    background-color: transparent;
   }
 </style>
