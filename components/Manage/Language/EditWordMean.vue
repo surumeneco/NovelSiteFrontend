@@ -5,7 +5,7 @@
         <button
           class="accordion-button set-default"
           :class="{
-            collapsed: !refs.isCollapse
+            collapsed: Mean.IsCollapse
           }"
           type="button"
           style="padding: 0px 8px 0px 0px"
@@ -23,7 +23,7 @@
       <div
         class="accordion-collapse collapse set-default"
         :class="{
-          show: refs.isCollapse
+          show: !Mean.IsCollapse
         }"
       >
         <div
@@ -82,6 +82,45 @@
               />
             </div>
           </div>
+          <div
+            class="row"
+            style="margin: 0px; padding: 0px"
+          >
+            <div
+              class="col"
+              style="margin: 0px; padding: 4px"
+            >
+              <button
+                type="button"
+                class="btn btn-outline-info btn-sm"
+                name="UpButton"
+                style="padding: 0px; width: 100%"
+                v-bind="{
+                  disabled: Index < 1
+                }"
+                @click="emits('UpButton_onClick', null)"
+              >
+                ▲
+              </button>
+            </div>
+            <div
+              class="col"
+              style="margin: 0px; padding: 4px"
+            >
+              <button
+                type="button"
+                class="btn btn-outline-info btn-sm"
+                name="UpButton"
+                style="padding: 0px; width: 100%"
+                v-bind="{
+                  disabled: Index >= Length - 1
+                }"
+                @click="emits('DownButton_onClick', null)"
+              >
+                ▼
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -89,15 +128,21 @@
 </template>
 
 <script setup lang="ts">
-  class Valiable {
-    isCollapse: boolean = true;
-  }
+  class Valiable {}
 
   const refs = ref<Valiable>(new Valiable());
 
   const Props = defineProps({
     ClassOptions: {
       type: Array<OptionClass>,
+      required: true
+    },
+    Index: {
+      type: Object as () => number,
+      required: true
+    },
+    Length: {
+      type: Object as () => number,
       required: true
     }
   });
@@ -109,16 +154,19 @@
       ShowingFlag: string;
       DisableFlag: string;
       IsNew: string;
+      IsCollapse: boolean;
     },
     required: true
   });
 
   const emits = defineEmits<{
     (e: 'DeleteButton_onClick', v: null): void;
+    (e: 'UpButton_onClick', v: null): void;
+    (e: 'DownButton_onClick', v: null): void;
   }>();
 
   const AccordionButton_onClick = function () {
-    refs.value.isCollapse = !refs.value.isCollapse;
+    Mean.value.IsCollapse = !Mean.value.IsCollapse;
   };
 </script>
 

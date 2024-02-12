@@ -111,12 +111,16 @@
   }
   .drawer__nav__inner {
     position: relative;
-    width: 80%;
+    width: 50%;
     height: 100%;
     background-color: #3f3f3f;
     padding: 4rem 1.5rem 1rem;
     margin: 0 0 0 auto;
     transform: translateX(100%);
     transition: transform 0.3s ease;
+
+    @include mq(sml) {
+      width: 80%;
+    }
   }
 </style>
