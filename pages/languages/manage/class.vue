@@ -22,7 +22,7 @@
           <div class="content-title">品詞一覧</div>
           <table
             class="table table-striped table-bordered"
-            style="text-align: center"
+            style="text-align: center; margin: 8px 0px"
           >
             <thead>
               <tr>
